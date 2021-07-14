@@ -31,13 +31,4 @@ echo "My name is: $(whoami)"
 
 echo "Start executing docker..."
 
-INPUT_OPTIONS="--workdir $WORKDIR -v $WORKDIR:$WORKDIR $INPUT_OPTIONS"
-echo $INPUT_OPTIONS
-
-docker ps
-
-docker run -v "/var/run/docker.sock":"/var/run/docker.sock" $INPUT_OPTIONS --entrypoint=$INPUT_SHELL $INPUT_IMAGE -c "`cat semicolon_delimited_script`"
-
-docker ps
-
-exec echo "Hahaha.........."
+exec docker run -it --rm --workdir "$WORKDIR" -v "$WORKDIR":"$WORKDIR" -v "/var/run/docker.sock":"/var/run/docker.sock" $INPUT_OPTIONS --entrypoint=$INPUT_SHELL $INPUT_IMAGE -c "`cat semicolon_delimited_script`"
