@@ -3,7 +3,6 @@
 #### Current working directory is: /github/workspace ####
 WORKDIR=$(pwd)
 echo "Workdir => ${WORKDIR}"
-ls $WORKDIR
 
 if [ ! -z $INPUT_USERNAME ];
 then echo $INPUT_PASSWORD | docker login $INPUT_REGISTRY -u $INPUT_USERNAME --password-stdin
@@ -31,6 +30,8 @@ echo "My name is: $(whoami)"
 
 echo "Start executing docker..."
 
-echo "Hello World" > hello.txt
+mkdir hello
 
-exec docker run --workdir /github/workspace -v $(pwd):"/github/workspace" -v "/var/run/docker.sock":"/var/run/docker.sock" --entrypoint=sh $INPUT_IMAGE -c "docker version; docker ps; pwd; ls"
+echo "Hello World" > hello/hello.txt
+
+exec docker run --workdir /github/workspace -v "$(pwd)/hello":"/github/workspace" -v "/var/run/docker.sock":"/var/run/docker.sock" --entrypoint=sh $INPUT_IMAGE -c "docker version; docker ps; pwd; ls"
