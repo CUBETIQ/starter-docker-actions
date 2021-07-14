@@ -16,4 +16,4 @@ jobs:
         name: Starter Docker Action Test
         uses: cubetiq/starter-docker-actions@main
         with:
-          run: docker version; ls; pwd
+          run: docker version; ls /github/workspace
