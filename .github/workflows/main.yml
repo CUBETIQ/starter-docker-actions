@@ -12,4 +12,4 @@ jobs:
       - name: Starter Docker Test
         uses: cubetiq/starter-docker-actions@main
         with:
-          run: docker version
+          run: docker version; ls; pwd
