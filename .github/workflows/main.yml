@@ -10,6 +10,7 @@ jobs:
 
     steps:
       - name: Starter Docker Test
+        uses: actions/checkout@v2
         uses: cubetiq/starter-docker-actions@main
         with:
           run: docker version; ls; pwd
