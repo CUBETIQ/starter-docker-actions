@@ -9,7 +9,7 @@
 
 ```yaml
 - name: Starter Docker
-  uses: CUBETIQ/starter-docker-actions@v1
+  uses: CUBETIQ/starter-docker-actions@main
 ```
 
 # Example Action
@@ -19,7 +19,7 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: Starter Docker Test
-        uses: cubetiq/starter-docker-actions@v1
+        uses: cubetiq/starter-docker-actions@main
         with:
           shell: sh
           run: docker version
