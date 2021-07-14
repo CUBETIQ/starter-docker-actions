@@ -31,4 +31,6 @@ echo "My name is: $(whoami)"
 
 echo "Start executing docker..."
 
-exec docker run --workdir /github/workspace -v "/github/workspace":"/github/workspace" -v "/var/run/docker.sock":"/var/run/docker.sock" --entrypoint=sh $INPUT_IMAGE -c "docker version; docker ps; pwd; ls"
+echo "Hello World" > hello.txt
+
+exec docker run --workdir /github/workspace -v $(pwd):"/github/workspace" -v "/var/run/docker.sock":"/var/run/docker.sock" --entrypoint=sh $INPUT_IMAGE -c "docker version; docker ps; pwd; ls"
