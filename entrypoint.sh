@@ -2,6 +2,7 @@
  
 #### Current working directory is: /github/workspace ####
 WORKDIR=$(pwd)
+echo "Workdir => ${WORKDIR}"
 
 if [ ! -z $INPUT_USERNAME ];
 then echo $INPUT_PASSWORD | docker login $INPUT_REGISTRY -u $INPUT_USERNAME --password-stdin
