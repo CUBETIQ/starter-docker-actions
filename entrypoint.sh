@@ -15,7 +15,7 @@ then INPUT_SHELL=sh
 fi
 
 if [ -z $INPUT_IMAGE ];
-then INPUT_IMAGE=docker
+then INPUT_IMAGE=cubetiq/calpine-docker
 fi
 
 if [ -z $semicolon_delimited_script ];
