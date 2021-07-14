@@ -1,6 +1,6 @@
-FROM docker:latest
+FROM cubetiq/calpine-docker:latest
 
-RUN apk add bash
+RUN apk update
 
 COPY ./entrypoint.sh /entrypoint.sh
 
