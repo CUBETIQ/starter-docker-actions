@@ -22,6 +22,8 @@ if [ -z $semicolon_delimited_script ];
 then semicolon_delimited_script="echo $(whoami)"
 fi
 
+echo "Current directory..."
+pwd
 ls
 
 exec docker run -v "/var/run/docker.sock":"/var/run/docker.sock" $INPUT_OPTIONS --entrypoint=$INPUT_SHELL $INPUT_IMAGE -c "`cat semicolon_delimited_script`"
